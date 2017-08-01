@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>VPN Info</title>
+        <link rel="stylesheet" href="vpncss.css">
+    </head>
+    
+    <body>
+        <input type="text" id="uInput" onkeyup="search()" placeholder="Search By Name...">
+        <div id="clients">
+            
+        <button class= "header s">A</button>
+           <button class="accordion s">Armstrong</button>
+            <div class="panel">
+              <p>Lorem ipsum...</p>
+            </div>
+           <button class="accordion s">Arvig</button>
+            <div class="panel">
+              <p>Lorem ipsum...</p>
+            </div>
+
+           <button class="header s">B</button>
+           <button class="accordion s">Test</button>
+            <div class="panel">
+              <p>Lorem ipsum...</p>
+            </div>
+        </div>
+        <script>
+            //creates fancy looking animation -- toggles clicked elements maxHeight attribute
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+              acc[i].onclick = function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+              }
+            }
+            
+            //search function, loops though elements that are buttons and displays only those that match text
+            function search() {
+                var input, filter, button;
+                input = document.getElementById('uInput')
+                filter = input.value.toUpperCase();
+                btn = document.getElementsByClassName("s") 
+                for(i=0; i<btn.length; i++){
+                    a = btn[i].innerHTML;
+                    if (a.toUpperCase().indexOf(filter) > -1) {
+                    btn[i].style.display = "";
+                    } else {
+                    btn[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </body>
+    
+</html>
